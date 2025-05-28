@@ -1,5 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'maven'
+apply plugin: 'application'  // add this plugin
 
 group = 'com.example'
 version = '1.0-SNAPSHOT'
@@ -9,15 +10,19 @@ description = """MyMavenApp"""
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-
-
 repositories {
-        
-     maven { url "https://repo.maven.apache.org/maven2" }
+    maven { url "https://repo.maven.apache.org/maven2" }
 }
+
 dependencies {
     testCompile group: 'junit', name: 'junit', version:'3.8.1'
 }
+
+// Specify the main class for the application plugin
+application {
+    mainClass = 'com.example.App'
+}
+
 jar {
     manifest {
         attributes(
